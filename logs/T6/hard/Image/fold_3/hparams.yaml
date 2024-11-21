@@ -1,0 +1,5 @@
+dropout_rate: 0.25
+hf_vision_model: google/vit-base-patch16-224
+learning_rate: 5.0e-05
+lr: 5.0e-05
+output_neurons_for_each_classifier: 6

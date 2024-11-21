@@ -1,0 +1,5 @@
+dropout_rate: 0.25
+hf_text_model: PlanTL-GOB-ES/roberta-base-bne
+learning_rate: 5.0e-05
+lr: 5.0e-05
+output_neurons_for_each_classifier: 1
