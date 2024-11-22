@@ -25,7 +25,10 @@ EXIST-TFM/
 └── environment.yml         # Conda environment file
 
 ```
+## Replicate environment 
+To replicate the environment and run the scripts, execute the following command with conda installed on your system
 
+```conda create -n <YOUR_ENVIRONMENT_NAME> -f environment.yml ```
 ## How to run
 ### Prepare data
 #### Add gold labels and silver labels into a single JSON file
