@@ -190,7 +190,7 @@ class VisionEncoderL(BaseModuleLightning):
         return self.classifier(x)
     
 
-class LateFusionModelL(BaseModuleLightning):
+class EarlyFusionModelL(BaseModuleLightning):
     def __init__(
         self,
         hf_text_model,
@@ -202,7 +202,7 @@ class LateFusionModelL(BaseModuleLightning):
         metrics_collection,
         dropout_rate,
     ):
-        super(LateFusionModelL, self).__init__(
+        super(EarlyFusionModelL, self).__init__(
             learning_rate, loss_fn, metrics_collection, dropout_rate
         )
         # Model definition

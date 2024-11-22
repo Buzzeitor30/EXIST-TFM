@@ -2,7 +2,7 @@ from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss
 from models import (
     TextEncoderL,
     VisionEncoderL,
-    LateFusionModelL,
+    EarlyFusionModelL,
     MultiModalCrossAttentionL,
 )
 from torchmetrics.classification import F1Score, Precision, Recall, MatthewsCorrCoef
@@ -28,7 +28,7 @@ def setup_torch_lighning_module(arguments_from_parser, HF_TEXT_MODEL, HF_VISION_
     lightning_module_type = {
         "text": TextEncoderL,
         "image": VisionEncoderL,
-        "late": LateFusionModelL,
+        "early": EarlyFusionModelL,
         "multimodal": MultiModalCrossAttentionL,
     }.get(arguments_from_parser["architecture"])
 
@@ -54,15 +54,15 @@ def get_model_params(architecture, HF_TEXT_MODEL, HF_VISION_MODEL, projection_di
     Get the model parameters based on the specified architecture.
 
     Args:
-        architecture (str): The architecture approach ("text", "image", or "late").
-        HF_TEXT_MODEL: The huggingface text model for the "text" or "late" approach.
-        HF_VISION_MODEL: The huggingface vision model for the "image" or "late" approach.
+        architecture (str): The architecture approach ("text", "image", or "early").
+        HF_TEXT_MODEL: The huggingface text model for the "text" or "early" approach.
+        HF_VISION_MODEL: The huggingface vision model for the "image" or "early" approach.
 
     Returns:
         dict: A dictionary containing the model parameters grouped by approach.
               For the "text" approach, the dictionary will have the key "hf_text_model".
               For the "image" approach, the dictionary will have the key "hf_vision_model".
-              For the "late" approach, the dictionary will have the keys "hf_text_model",
+              For the "early" approach, the dictionary will have the keys "hf_text_model",
               "hf_vision_model", and "projection_dim" with a value of 256.
 
     """
@@ -71,7 +71,7 @@ def get_model_params(architecture, HF_TEXT_MODEL, HF_VISION_MODEL, projection_di
             "hf_text_model": HF_TEXT_MODEL,
         },
         "image": {"hf_vision_model": HF_VISION_MODEL},
-        "late": {
+        "early": {
             "hf_text_model": HF_TEXT_MODEL,
             "hf_vision_model": HF_VISION_MODEL,
             "projection_dim": projection_dim,

@@ -174,3 +174,6 @@ lightning_logs/
 *.ckpt
 *.tfevents*
 *.sh
+
+#Exceptions
+!logos/*.png

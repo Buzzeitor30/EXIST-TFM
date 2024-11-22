@@ -143,7 +143,7 @@ def setup_pytorch_dataset(
         dataset_cls = EXISTMemeTextDataset
     elif architecture == "image":
         dataset_cls = EXISTMemeImageDataset
-    elif architecture == "late":
+    elif architecture == "early":
         dataset_cls = EXISTMemeTextAndImageDataset
     else:
         dataset_cls = EXISTMemeTestDataset 

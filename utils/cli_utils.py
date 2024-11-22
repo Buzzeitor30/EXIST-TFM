@@ -23,7 +23,7 @@ def setup_argument_parser():
     parser.add_argument(
         "architecture",
         type=str,
-        choices=["text", "image", "multimodal", "late"],
+        choices=["text", "image", "multimodal", "early"],
         help="Select the architecture to use for the run. Available options are text(unimodal), image(unimodal), multimodal(using cross attention) & late fusion(concat embeddings)",
     )
 
